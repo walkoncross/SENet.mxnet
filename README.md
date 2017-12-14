@@ -1,7 +1,8 @@
 # SENet.mxnet
-A MXNet implementation of Squeeze-and-Excitation Networks (**SE-ResNext 18, 50, 101, 152**)
+A MXNet implementation of Squeeze-and-Excitation Networks 
+(**SE-ResNext 18,50,101,152, SE-Resnet, SE-Inception-v4 and SE-Inception-Resnet-v2**)
 
-This is a [MXNet](http://mxnet.io/) implementation of Squeeze-and-Excitation Networks (**SE-ResNext and SE-Resnet**) architecture as described in the paper [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507v1.pdf) proposed by [Jie Hu](https://github.com/hujie-frank) et. al. They deployed this SE block in SENet and win the Imagenet 2017 classification task.
+This is a [MXNet](http://mxnet.io/) implementation of Squeeze-and-Excitation Networks (**SE-ResNext, SE-Resnet, SE-Inception-v4 and SE-Inception-Resnet-v2**) architecture as described in the paper [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507v1.pdf) proposed by [Jie Hu](https://github.com/hujie-frank) et. al. They deployed this SE block in SENet and win the Imagenet 2017 classification task.
 
 ![](title.png)
 
@@ -9,17 +10,19 @@ The author's caffe implementation can be found in his [repo](https://github.com/
 
 This is an illustration of a Squeeze-and-Excitation block.
 
-![](SE_Block.png)
+![](SE_Block.png) 
 
 The SE-ResNet module is implemented as followed:
 
-![](SE-ResNet_module.png)
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="SE-ResNet_module.png" width = "380"></div>
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="SE-Inception_Block.png" width = "380"></div>
+<div style="float:none;clear:both;">
 
 The SE-ResNext 50 is implemented following this table:
 
 ![](SE-ResNext_50.png)
 
-This MXNet implementation is refered to [taki0112's](https://github.com/taki0112) [tensorflow version](https://github.com/taki0112/SENet-Tensorflow). I also refered a [PyTorch implementation](https://github.com/kuangliu/pytorch-cifar/blob/master/models/senet.py) from [kuangliu](https://github.com/kuangliu). BTW, I add a dropout layer before the last FullyConnected layer. I attach the training code if you want to train your own data with SE-ResNext architecture by yourself. 
+This MXNet implementation is refered to [taki0112's](https://github.com/taki0112) [tensorflow version](https://github.com/taki0112/SENet-Tensorflow). I also refered a [PyTorch implementation](https://github.com/kuangliu/pytorch-cifar/blob/master/models/senet.py) from [kuangliu](https://github.com/kuangliu). BTW, I add a dropout layer before the last FullyConnected layer. For Inception v4, I refers the [MXnet implementation](https://github.com/Trangle/mxnet-inception-v4) from [Trangle](https://github.com/Trangle). Finally, I attach the training code if you want to train your own data with SE-ResNext architecture by yourself. 
 
 
 ## Requirements
@@ -72,6 +75,12 @@ We provide the pretrained model of SE-Resnext 50 trained on imagenet 1k dataset.
 
 **Added SE-Resnet 18, 50, 101, 152 (Updated at Sep-27, 2017)**.
 
+**Added SE-inception-v4 (Updated at Oct-30, 2017, Thanks to [Cher Keng Heng](https://github.com/hengck23))**.
+
+**Added SE-inception-resnet-v2 (Updated at Nov-5, 2017)**.
+
+Note, the backbone of inception-v4 or inception-resnet-v2 is modified from original version (299x299) to different version (224x224). If you want to deploy original one, you can easily modify to what you want.
+
 **Gluon version is coming soon**.
 
 ## Reference
@@ -81,3 +90,5 @@ We provide the pretrained model of SE-Resnext 50 trained on imagenet 1k dataset.
 [2]  [Tensorflow implementation](https://github.com/taki0112/SENet-Tensorflow) of SENet from [taki0112's](https://github.com/taki0112)
 
 [3]  [PyTorch implementation](https://github.com/kuangliu/pytorch-cifar/blob/master/models/senet.py)
+
+[4]  [Inception V4](https://github.com/Trangle/mxnet-inception-v4) from [Trangle](https://github.com/Trangle)
